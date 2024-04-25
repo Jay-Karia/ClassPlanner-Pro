@@ -12,6 +12,10 @@
   ```
   npm install
   ```
+- Create a .env file in root directory
+  ``` js
+  DATABASE_URL="MONGODB_URL"
+  ```
 - Run development server
   ```
   npm run dev
