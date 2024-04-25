@@ -1,7 +1,12 @@
-import { signOut } from "@/../auth";
+import { signOut, auth } from "@/../auth";
 import { Button } from "@/components/ui/button";
 
-export default function DashboardPage() {
+export default async function DashboardPage() {
+
+    const session = await auth();
+
+    if (!session.user) return null;
+
     return (
         <div>
             This is DashboardPage
@@ -13,6 +18,8 @@ export default function DashboardPage() {
             >
                 <Button variant={"default"} type="submit">Log out</Button>
             </form>
+            <h1>Session</h1>
+            {JSON.stringify(session)}
         </div>
     );
 }
