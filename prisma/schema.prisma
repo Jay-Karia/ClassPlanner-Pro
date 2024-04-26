@@ -48,3 +48,22 @@ model Account {
   @@unique([provider, providerAccountId])
   @@map("accounts")
 }
+
+model Tables {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @ignore @db.Date
+  data      Json
+  division  String
+  standard  String
+  title     String
+  updatedAt DateTime @db.Date
+}
+
+model Teachers {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @ignore @db.Date
+  firstName String
+  lastName  String
+  table     String
+  updatedAt DateTime @db.Date
+}

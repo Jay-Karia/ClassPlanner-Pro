@@ -30,19 +30,18 @@ export default function MarketingPage() {
         </div>
 
         <div className="flex gap-4 mt-5 justify-around w-max">
-          <Button variant={"primary"}>Generate</Button>
-          <Button variant={"secondary"}>GitHub</Button>
+          <Button variant={"primary"} asChild>
+            <Link href="/generate">
+          Generate
+          </Link>
+          </Button>
+          <Button variant={"secondary"} asChild>
+            <Link href="https://github.com/Jay-Karia/ClassPlanner-Pro" target="_blank">
+          GitHub
+            </Link>
+          </Button>
         </div>
       </div>
-
-      {/* Illustrations */}
-      {/* <div className="w-1/2 p-5 flex justify-center flex-wrap gap-24 items-center">
-        <MarketingCard text="1. Create School" imageFileName="createSchool.png"/>
-        <MarketingCard text="2. Add Classes" imageFileName="createSchool.png"/>
-        <MarketingCard text="3. Add Teachers" imageFileName="createSchool.png"/>
-        <MarketingCard text="4. Add Subjects" imageFileName="createSchool.png"/>
-        <MarketingCard text="5. Generate" imageFileName="createSchool.png"/>
-      </div> */}
     </div>
   );
 }
