@@ -1,25 +1,26 @@
+'use client'
+
 import { signOut, auth } from "@/../auth";
 import { Button } from "@/components/ui/button";
 
-export default async function DashboardPage() {
+import { usePathname, useSearchParams } from 'next/navigation'
+import {useEffect} from 'react'
 
-    const session = await auth();
+export default function DashboardPage() {
 
-    if (!session.user) return null;
+    // rendering the content depending on the URL
+    const pathname = usePathname()
+    const searchParams = useSearchParams()
+
+    
+
+    useEffect(()=> {
+    }, [pathname, searchParams])
 
     return (
-        <div>
-            This is DashboardPage
-            <form
-                action={async () => {
-                    "use server"
-                    await signOut()
-                }}
-            >
-                <Button variant={"default"} type="submit">Log out</Button>
-            </form>
-            <h1>Session</h1>
-            {JSON.stringify(session)}
+        <div className="flex flex-col w-full">
+            {/* Main Content */}
+            
         </div>
     );
 }

@@ -1,3 +1,4 @@
+import Sidebar from '@/components/Sidebar';
 import React from 'react'
 
 type DashboardLayoutProps = {
@@ -6,8 +7,8 @@ type DashboardLayoutProps = {
 
 export default function DashboardLayout ({children} : DashboardLayoutProps) {
     return (
-        <div>
-            Dashboard layout
+        <div className="h-full w-full flex">
+            <Sidebar />
             {children}
         </div>
     )

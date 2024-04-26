@@ -19,6 +19,11 @@ export default auth((req) => {
         return
     }
 
+    // cannot see marketing page after logging in
+    if (nextUrl.pathname === "/" && isLoggedIn) {
+        return Response.redirect(new URL(DEFAULT_LOGIN_REDIRECT, nextUrl))
+    }
+
     if (!isLoggedIn && !isPublicRoute)
         return Response.redirect(new URL("/login", nextUrl))
 
