@@ -8,9 +8,11 @@ type DashboardLayoutProps = {
 
 export default function DashboardLayout ({children} : DashboardLayoutProps) {
     return (
-        <div className="h-full w-full">
+        <div className="h-full w-full flex">
             <Sidebar />
-            {children}
+            <div className="w-full">
+                {children}
+            </div>
         </div>
     )
 }
