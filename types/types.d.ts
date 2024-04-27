@@ -7,6 +7,14 @@ declare global {
         title: string,
         updatedAt: string,
     }
+
+    type TeacherType = {
+        id: number,
+        firstName: string,
+        lastName: string,
+        table: TableType,
+        updatedAt: string,
+    }
 }
 
 export default { TableType }

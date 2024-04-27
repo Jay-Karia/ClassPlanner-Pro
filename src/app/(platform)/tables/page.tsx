@@ -3,6 +3,7 @@
 import React, {useEffect, useState} from 'react'
 import { useTableStore } from '@/store'
 import global from '@/../types/types'
+import { Button } from '@/components/ui/button'
 
 const TablesPage = () => {
 
@@ -11,6 +12,7 @@ const TablesPage = () => {
   const [refresh, setRefresh] = useState(false)
 
   useEffect(() => {
+    // Fetch Data
     const fetchTables = async () => {
       try {
         const response = await fetch('/api/table')
@@ -42,7 +44,7 @@ const TablesPage = () => {
         <h1>No tables found</h1>
       )}
 
-      <button onClick={()=>{setRefresh(!refresh)}}>Refresh</button>
+      <Button onClick={()=>{setRefresh(!refresh)}}>Refresh</Button>
     </div>
   )
 }
