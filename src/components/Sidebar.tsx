@@ -1,11 +1,15 @@
 import Link from "next/link"
 import { Button } from "./ui/button"
 import { signOut, auth } from "@/../auth";
+import Image from "next/image"
 
-const Sidebar = () => {
+const Sidebar = async () => {
+
+  const session = await auth()
+
   return (
-    <div className="h-full w-[350px] border-r p-5 flex flex-col gap-5 justify-between">
-      <div className="flex flex-col gap-5">
+    <div className="md:border-r p-5 flex flex-col gap-5 justify-between w-full md:w-[350px] md:h-full border-b-2">
+      <div className="flex md:flex-col gap-5 flex-row justify-center flex-wrap w-full">
 
       <Button asChild variant={"special"}>
         <Link href="/generate">
@@ -25,7 +29,7 @@ const Sidebar = () => {
       </Button>
       </div>
 
-      <div>
+      {/* <div className="flex items-center justify-between">
       <form
                 action={async () => {
                     "use server"
@@ -34,7 +38,10 @@ const Sidebar = () => {
             >
                 <Button variant={"secondary"} type="submit">Log out</Button>
             </form>
-      </div>
+            {session?.user?.image && 
+              <Image height={25} width={25} src={session.user.image} alt="profile" className="rounded-full"/>
+            }
+      </div> */}
     </div>
   )
 }

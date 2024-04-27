@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from 'react'
 import { useTableStore } from '@/store'
-import global from '@/../types/types'
+import global from '../../../../types/global'
 import { Button } from '@/components/ui/button'
 
 const TablesPage = () => {

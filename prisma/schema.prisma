@@ -24,6 +24,7 @@ model User {
   name          String?
   email         String?   @unique
   image         String?
+  emailVerified DateTime?
   accounts      Account[]
   @@map("users")
 

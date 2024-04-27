@@ -14,16 +14,20 @@ const TeacherPage = () => {
   const setRefresh = useRefreshStore(state => state.setRefresh)
   const teachers = useTeacherStore(state => state.teachers)
   const setTeachers = useTeacherStore(state => state.setTeachers)
+  const [loading, setLoading] = useState(false)
 
   useEffect(()=> {
     const fetchTeachers = async () => {
+      setLoading(true)
       try {
         const response = await fetch('/api/teacher')
         const fetchedTeachers = await response.json()
-        console.log(fetchedTeachers.teachers)
+        console.log("here")
         setTeachers(fetchedTeachers.teachers)
       } catch (error) {
-        // console.error(error)
+        console.error(error)
+      } finally {
+        setLoading(false)
       }
     }
     console.log("here")
@@ -34,10 +38,10 @@ const TeacherPage = () => {
   
 
   return (
-    <div>
-      <AllTeachers teachers={teachers}/>
+    <div className="flex flex-col gap-12 p-5">
       <AddTeachers/>
-      <Button onClick={()=>{setRefresh(!refresh)}}>Refresh</Button>
+      <AllTeachers teachers={teachers}/>
+      <Button onClick={()=>{setRefresh(!refresh)}} className="w-max" variant={"secondary"} >Refresh</Button>
     </div>
   )
 }

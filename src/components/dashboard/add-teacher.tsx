@@ -29,12 +29,14 @@ const AddTeachers = () => {
   }
 
   return (
-    <div>
-      <h1>Add Teachers</h1>
-      <form>
+    <div className="flex flex-col gap-5 md:justify-start md:items-start justify-center items-center bg-slate-50 p-5 rounded-lg md:w-max">
+      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+          Add Teachers
+      </h3>
+      <form className="flex flex-col gap-5 w-max">
         <Input type="text" placeholder="First Name" id="first"/>
         <Input type="text" placeholder="Last Name" id="last"/>
-        <Button type="button" onClick={addTeacher}>Add Teacher</Button>
+        <Button type="button" onClick={addTeacher} variant={"primary"}>Add Teacher</Button>
       </form>
     </div>
   )

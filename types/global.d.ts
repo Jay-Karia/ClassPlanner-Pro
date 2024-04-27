@@ -12,7 +12,7 @@ declare global {
         id: number,
         firstName: string,
         lastName: string,
-        table: TableType,
+        table: string,
         updatedAt: string,
     }
 }
