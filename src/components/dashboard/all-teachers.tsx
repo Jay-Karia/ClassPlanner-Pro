@@ -47,7 +47,7 @@ const AllTeachers = ({ teachers }: { teachers: TeacherType[] }) => {
           </h3>
           <div className="flex flex-wrap sm:gap-24 gap-5 justify-around w-full">
             {teachers.map((teacher) => (
-              <div key={teacher.id} className="space-y-5 grid gird-cols-3 p-2 rounded-lg sm:w-1/4 w-full">
+              <div key={teacher.id} className="space-y-5 grid gird-cols-3 p-5 rounded-lg sm:w-1/4 w-full bg-slate-100">
                 <span>{teacher.firstName} {teacher.lastName}</span>
                 <div className="flex justify-between">
                 <Button

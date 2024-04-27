@@ -12,7 +12,7 @@ const Logo = () => {
         <Link href="/">
             <div className="flex gap-3 h-max hover:opacity-75 transition">
                 <Image src="/logo.svg" width={30} height={30} alt="Logo" />
-                <h4 className={cn("scroll-m-20 text-lg font-medium tracking-tight", headingFont.className)}>
+                <h4 className={cn("scroll-m-20 sm:text-lg text-md font-medium tracking-tight", headingFont.className)}>
                     ClassPlanner Pro
                 </h4>
             </div>

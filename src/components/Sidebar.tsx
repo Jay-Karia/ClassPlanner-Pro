@@ -28,20 +28,6 @@ const Sidebar = async () => {
         </Link>
       </Button>
       </div>
-
-      {/* <div className="flex items-center justify-between">
-      <form
-                action={async () => {
-                    "use server"
-                    await signOut()
-                }}
-            >
-                <Button variant={"secondary"} type="submit">Log out</Button>
-            </form>
-            {session?.user?.image && 
-              <Image height={25} width={25} src={session.user.image} alt="profile" className="rounded-full"/>
-            }
-      </div> */}
     </div>
   )
 }

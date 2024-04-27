@@ -2,7 +2,7 @@
 
 import React, {useEffect, useState} from 'react'
 import { useTableStore } from '@/store'
-import global from '../../../../types/global'
+import TimeTable from '@/components/timetable'
 import { Button } from '@/components/ui/button'
 
 const TablesPage = () => {
@@ -29,22 +29,21 @@ const TablesPage = () => {
   }, [refresh])
 
   return (
-    <div>
+    <div className="p-5 space-y-12">
+      <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
+            All Tables
+          </h3>
       {tables.length > 0 ? (
         tables.map((table , index) => (
           <div key={index}>
-            <h1 key={index}>{table.title}</h1>
-            <p>{table.division}</p>
-            <p>{table.standard}</p>
-            <p>{table.updatedAt}</p>
-            <p>{JSON.stringify(table.data)}</p>
+            <TimeTable data={table}/>
           </div>
         ))
       ) : (
         <h1>No tables found</h1>
       )}
 
-      <Button onClick={()=>{setRefresh(!refresh)}}>Refresh</Button>
+      <Button onClick={()=>{setRefresh(!refresh)}} variant={"secondary"}>Refresh</Button>
     </div>
   )
 }

@@ -2,17 +2,20 @@ import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import React from 'react'
 
-type DashboardLayoutProps = {
+type PlatformLayoutProps = {
     children: React.ReactNode;
 }
 
-export default function DashboardLayout ({children} : DashboardLayoutProps) {
+export default function PlatformLayout ({children} : PlatformLayoutProps) {
     return (
-        <div className="h-full w-full flex flex-col md:flex-row">
-            <Sidebar />
-            <div className="w-full">
-                {children}
+        <>
+            <Navbar />
+            <div className="h-full w-full flex flex-col md:flex-row">
+                <Sidebar />
+                <div className="w-full">
+                    {children}
+                </div>
             </div>
-        </div>
+        </>
     )
 }

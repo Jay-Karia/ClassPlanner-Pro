@@ -21,7 +21,7 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         hover: "bg-primary text-primary-foreground shadow hover:bg-primary/90 hover:-translate-y-1 hover:transition-transform hover:delay-200 hover:ease-in transition-transform delay-200 ease-in",
         primary: "text-primary-foreground bg-gradient-to-tr from-indigo-500 to-purple-900 hover:opacity-80",
-        special: " text-black bg-indigo-100 hover:bg-indigo-200",
+        special: " text-black bg-slate-100 hover:bg-slate-200",
       },
       size: {
         default: "h-9 px-4 py-2",

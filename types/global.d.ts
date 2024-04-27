@@ -1,7 +1,7 @@
 declare global {
     type TableType = {
         id: number,
-        data: object[],
+        data: string[][],
         division: string,
         standard: number,
         title: string,
