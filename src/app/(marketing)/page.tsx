@@ -17,7 +17,7 @@ const textFont = Poppins({
 
 export default function MarketingPage() {
   return (
-    <div className="flex flex-col gap-36 w-full items-center">
+    <div className="flex flex-col gap-24 w-full items-center">
       <div className="mt-10 flex flex-col items-center gap-5">
         {/* <Image src="/logo.svg" width={30} height={30} alt="Logo" /> */}
         <h1 className={cn("scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl", headingFont.className)}>
@@ -42,6 +42,13 @@ export default function MarketingPage() {
           </Button>
         </div>
       </div>
+
+      {/* Illustrations */}
+      <div className="w-max p-5 flex justify-center flex-wrap gap-14 items-center border-2">
+        <MarketingCard text="1. Add Teachers" imageFileName="createSchool.png"/>
+        <MarketingCard text="2. Add Subjects" imageFileName="createSchool.png"/>
+        <MarketingCard text="3. Generate" imageFileName="createSchool.png"/>
+      </div>
     </div>
   );
-}
+} 

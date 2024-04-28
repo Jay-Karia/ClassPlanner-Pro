@@ -1,51 +1,60 @@
-"use client"
+"use client";
 
-import React, {useEffect, useState} from 'react'
-import { useTableStore } from '@/store'
-import TimeTable from '@/components/timetable'
-import { Button } from '@/components/ui/button'
+import React, { useEffect, useState } from "react";
+import { useTableStore } from "@/store";
+import TimeTable from "@/components/timetable";
+import { Button } from "@/components/ui/button";
+import ScrollableFeed from "react-scrollable-feed";
 
 const TablesPage = () => {
-
-  const tables = useTableStore(state => state.tables)
-  const setTables = useTableStore(state => state.setTables)
-  const [refresh, setRefresh] = useState(false)
+  const tables = useTableStore((state) => state.tables);
+  const setTables = useTableStore((state) => state.setTables);
+  const [refresh, setRefresh] = useState(false);
 
   useEffect(() => {
     // Fetch Data
     const fetchTables = async () => {
       try {
-        const response = await fetch('/api/table')
-        const fetchedTables = await response.json()
-        setTables(fetchedTables.tables)
-        console.log("here")
+        const response = await fetch("/api/table");
+        const fetchedTables = await response.json();
+        setTables(fetchedTables.tables);
+        console.log("here");
         // setRefresh(false)
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
-    }
+    };
 
-    fetchTables()
-  }, [refresh])
+    fetchTables();
+  }, [refresh]);
 
   return (
     <div className="p-5 space-y-12">
       <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
-            All Tables
-          </h3>
+        All Tables
+      </h3>
+      <ScrollableFeed className={"h-96 overflow-y-scroll"}>
       {tables.length > 0 ? (
-        tables.map((table , index) => (
+        tables.map((table, index) => (
           <div key={index}>
-            <TimeTable data={table}/>
+            <TimeTable data={table} />
           </div>
         ))
       ) : (
         <h1>No tables found</h1>
       )}
 
-      <Button onClick={()=>{setRefresh(!refresh)}} variant={"secondary"}>Refresh</Button>
+      <Button
+        onClick={() => {
+          setRefresh(!refresh);
+        }}
+        variant={"secondary"}
+      >
+        Refresh
+      </Button>
+    </ScrollableFeed>
     </div>
-  )
-}
+  );
+};
 
-export default TablesPage
+export default TablesPage;

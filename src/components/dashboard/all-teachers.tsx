@@ -5,6 +5,7 @@ import { Button } from "../ui/button";
 import { useRefreshStore } from "@/store";
 import Link from "next/link";
 import { redirect } from "next/navigation";
+import ScrollableFeed from "react-scrollable-feed";
 
 const AllTeachers = ({ teachers }: { teachers: TeacherType[] }) => {
   const refresh = useRefreshStore((state) => state.refresh);
@@ -45,6 +46,7 @@ const AllTeachers = ({ teachers }: { teachers: TeacherType[] }) => {
           <h3 className="scroll-m-20 text-2xl font-semibold tracking-tight">
             All Teachers
           </h3>
+            <ScrollableFeed className="h-96">
           <div className="flex flex-wrap sm:gap-24 gap-5 justify-around w-full">
             {teachers.map((teacher) => (
               <div key={teacher.id} className="space-y-5 grid gird-cols-3 p-5 rounded-lg sm:w-1/4 w-full bg-slate-100">
@@ -64,6 +66,7 @@ const AllTeachers = ({ teachers }: { teachers: TeacherType[] }) => {
               </div>
             ))}
           </div>
+            </ScrollableFeed>
         </div>
       ) }
     </div>

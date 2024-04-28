@@ -1,4 +1,4 @@
-import { create } from 'zustand'
+import {create} from 'zustand'
 import {TeacherStoreType, TableStoreType, RefreshStoreType} from '@/../../types/store'
 
 export const useTableStore = create<TableStoreType>((set) => ({

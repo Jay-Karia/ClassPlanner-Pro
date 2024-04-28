@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
 import React from 'react'
+import ScrollableFeed from 'react-scrollable-feed';
 
 type PlatformLayoutProps = {
     children: React.ReactNode;

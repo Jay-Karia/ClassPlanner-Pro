@@ -7,11 +7,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Button } from "./ui/button";
 
 const TimeTable = ({ data }: { data: TableType }) => {
   return (
-    <div className="space-y-5">
-      <div>
+    <div className="px-4 pb-4 rounded-lg hover:bg-indigo-50">
+      <div className="flex p-4 space-x-3 pl-0 rounded-lg">
         <h4 className="scroll-m-20 text-xl font-semibold tracking-tight">
           {data.title}
         </h4>
@@ -21,7 +22,7 @@ const TimeTable = ({ data }: { data: TableType }) => {
         </div>
       </div>
 
-      <div className="border-2 rounded-lg p-5">
+      <div className="border-2 rounded-lg p-5 bg-white">
         <Table>
           <TableHeader>
             <TableRow>
@@ -43,6 +44,7 @@ const TimeTable = ({ data }: { data: TableType }) => {
           </TableBody>
         </Table>
       </div>
+        {/* <Button className="float-right" variant={"primary"}>Export</Button> */}
     </div>
   );
 };
