@@ -16,3 +16,8 @@ export type RefreshStoreType = {
     refresh: boolean
     setRefresh: (refresh: boolean) => void
 }
+
+export type EditStoreType = {
+    edit: boolean
+    setEdit: (edit: boolean) => void
+}

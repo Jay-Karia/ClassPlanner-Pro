@@ -21,10 +21,6 @@ const TablesPage = () => {
         const response = await fetch("/api/table");
         const fetchedTables = await response.json();
         setTables(fetchedTables.tables);
-        toast({
-          title: fetchedTables.msg,
-          variant: "success"
-        })
       } catch (error) {
         console.error(error);
         toast({

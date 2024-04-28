@@ -4,6 +4,7 @@ import React from "react";
 import { Button } from "../ui/button";
 import { useRefreshStore } from "@/store";
 import ScrollableFeed from "react-scrollable-feed";
+import { useRouter } from 'next/navigation'
 import { useToast } from "@/components/ui/use-toast";
 import {
   AlertDialog,
@@ -22,6 +23,7 @@ const AllTeachers = ({ teachers }: { teachers: TeacherType[] }) => {
   const setRefresh = useRefreshStore((state) => state.setRefresh);
 
   const { toast } = useToast();
+  const router = useRouter()
 
   const deleteTeacher = async (id: number) => {
     try {
@@ -49,10 +51,13 @@ const AllTeachers = ({ teachers }: { teachers: TeacherType[] }) => {
 
   const handleTable = (id: string) => {
     if (id.length === 0) {
-      alert("No table assigned");
+      return toast({
+        title: "No table assigned",
+        variant: "destructive",
+      });
     } else {
       const url = `/table/${id}`;
-      alert(url);
+      router.push(url)
     }
   };
 
