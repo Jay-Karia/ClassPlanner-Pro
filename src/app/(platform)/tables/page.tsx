@@ -5,11 +5,14 @@ import { useTableStore } from "@/store";
 import TimeTable from "@/components/timetable";
 import { Button } from "@/components/ui/button";
 import ScrollableFeed from "react-scrollable-feed";
+import { useToast } from "@/components/ui/use-toast";
 
 const TablesPage = () => {
   const tables = useTableStore((state) => state.tables);
   const setTables = useTableStore((state) => state.setTables);
   const [refresh, setRefresh] = useState(false);
+
+  const { toast } = useToast()
 
   useEffect(() => {
     // Fetch Data
@@ -18,10 +21,16 @@ const TablesPage = () => {
         const response = await fetch("/api/table");
         const fetchedTables = await response.json();
         setTables(fetchedTables.tables);
-        console.log("here");
-        // setRefresh(false)
+        toast({
+          title: fetchedTables.msg,
+          variant: "success"
+        })
       } catch (error) {
         console.error(error);
+        toast({
+          title: "Could not fetch tables",
+          variant: "destructive"
+        })
       }
     };
 

@@ -4,6 +4,7 @@ import React, {useEffect, useState} from 'react'
 import { useTeacherStore } from '@/store'
 import { useRefreshStore } from '@/store'
 import { Button } from '@/components/ui/button'
+import { useToast } from "@/components/ui/use-toast"
 
 import AllTeachers from '@/components/dashboard/all-teachers'
 import AddTeachers from '@/components/dashboard/add-teacher'
@@ -16,21 +17,25 @@ const TeacherPage = () => {
   const setTeachers = useTeacherStore(state => state.setTeachers)
   const [loading, setLoading] = useState(false)
 
+  const { toast } = useToast()
+
   useEffect(()=> {
     const fetchTeachers = async () => {
       setLoading(true)
       try {
         const response = await fetch('/api/teacher')
         const fetchedTeachers = await response.json()
-        console.log("here")
         setTeachers(fetchedTeachers.teachers)
       } catch (error) {
         console.error(error)
+        toast({
+          title: "Could not fetch teachers",
+          variant: "destructive"
+        })
       } finally {
         setLoading(false)
       }
     }
-    console.log("here")
 
     fetchTeachers()
   },[refresh])

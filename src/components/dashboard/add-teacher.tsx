@@ -2,11 +2,14 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { Input } from '../ui/input'
 import { useRefreshStore } from '@/store'
+import { useToast } from '../ui/use-toast'
 
 const AddTeachers = () => {
 
   const refresh = useRefreshStore(state => state.refresh)
   const setRefresh = useRefreshStore(state => state.setRefresh)
+
+  const {toast} = useToast();
 
   const addTeacher  = async () => {
     const firstName = (document.getElementById("first") as HTMLInputElement).value
@@ -21,9 +24,17 @@ const AddTeachers = () => {
         body: JSON.stringify({firstName, lastName})
       })
       const data = await response.json()
+      toast({
+        title: data.msg,
+        variant: "success"
+      })
       setRefresh(!refresh)
     } catch (error) {
       console.error(error)
+      toast({
+        title: "Could not add teacher",
+        variant: "destructive"
+      })
     }
 
   }
